@@ -185,6 +185,12 @@ TK_LIBRARY:FILEPATH=/usr/lib/libtk8.5.so
 VTK_DIR:PATH=/home/tron/devel/vtk/VTK_BUILD
 
 //Value Computed by CMake
+rt3d_BINARY_DIR:STATIC=/home/tron/devel/rt3d
+
+//Value Computed by CMake
+rt3d_SOURCE_DIR:STATIC=/home/tron/devel/rt3d
+
+//Value Computed by CMake
 test_BINARY_DIR:STATIC=/home/tron/devel/rt3d
 
 //Value Computed by CMake

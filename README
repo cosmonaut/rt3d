@@ -1,0 +1,11 @@
+RT3D
+
+rt3d is a program written to display raytraces of telescope optics in
+3D. It is written in C++ and uses vtk (visualization toolkit) for 3D
+rendering. Input for the program is given in xml format (Specifics
+will be documented later...).
+
+Dependencies:
+vtk
+libxml++
+vtkMy (My custom vtkParametricParaboloid optic class)

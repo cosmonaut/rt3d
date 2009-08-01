@@ -1,4 +1,4 @@
-PROJECT (test)
+PROJECT (rt3d)
 
 FIND_PACKAGE(VTK  REQUIRED)
 INCLUDE(${VTK_USE_FILE})
@@ -7,8 +7,8 @@ INCLUDE_DIRECTORIES("/home/tron/devel/vtkMy", "/home/tron/devel/vtkMy/bin", "/ho
 
 LINK_DIRECTORIES("/home/tron/devel/vtkMy/bin")
 
-ADD_EXECUTABLE(test test.cxx)
-TARGET_LINK_LIBRARIES(test
+ADD_EXECUTABLE(rt3d rt3d.cxx)
+TARGET_LINK_LIBRARIES(rt3d
     vtkCommon vtkGraphics
     vtkHybrid vtkIO vtkRendering
     vtkmyCommon xml++-2.6)

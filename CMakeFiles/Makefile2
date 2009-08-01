@@ -53,38 +53,38 @@ CMAKE_SOURCE_DIR = /home/tron/devel/rt3d
 CMAKE_BINARY_DIR = /home/tron/devel/rt3d
 
 #=============================================================================
-# Target rules for target CMakeFiles/test.dir
+# Target rules for target CMakeFiles/rt3d.dir
 
 # All Build rule for target.
-CMakeFiles/test.dir/all:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/depend
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
+CMakeFiles/rt3d.dir/all:
+	$(MAKE) -f CMakeFiles/rt3d.dir/build.make CMakeFiles/rt3d.dir/depend
+	$(MAKE) -f CMakeFiles/rt3d.dir/build.make CMakeFiles/rt3d.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/tron/devel/rt3d/CMakeFiles  1
-	@echo "Built target test"
-.PHONY : CMakeFiles/test.dir/all
+	@echo "Built target rt3d"
+.PHONY : CMakeFiles/rt3d.dir/all
 
 # Include target in all.
-all: CMakeFiles/test.dir/all
+all: CMakeFiles/rt3d.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/test.dir/rule: cmake_check_build_system
+CMakeFiles/rt3d.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tron/devel/rt3d/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/test.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rt3d.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/tron/devel/rt3d/CMakeFiles 0
-.PHONY : CMakeFiles/test.dir/rule
+.PHONY : CMakeFiles/rt3d.dir/rule
 
 # Convenience name for target.
-test: CMakeFiles/test.dir/rule
-.PHONY : test
+rt3d: CMakeFiles/rt3d.dir/rule
+.PHONY : rt3d
 
 # clean rule for target.
-CMakeFiles/test.dir/clean:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/clean
-.PHONY : CMakeFiles/test.dir/clean
+CMakeFiles/rt3d.dir/clean:
+	$(MAKE) -f CMakeFiles/rt3d.dir/build.make CMakeFiles/rt3d.dir/clean
+.PHONY : CMakeFiles/rt3d.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/test.dir/clean
+clean: CMakeFiles/rt3d.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -99,32 +99,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test
+# Target rules for targets named rt3d
 
 # Build rule for target.
-test: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test
-.PHONY : test
+rt3d: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rt3d
+.PHONY : rt3d
 
 # fast build rule for target.
-test/fast:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
-.PHONY : test/fast
+rt3d/fast:
+	$(MAKE) -f CMakeFiles/rt3d.dir/build.make CMakeFiles/rt3d.dir/build
+.PHONY : rt3d/fast
 
 # target to build an object file
-test.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.o
-.PHONY : test.o
+rt3d.o:
+	$(MAKE) -f CMakeFiles/rt3d.dir/build.make CMakeFiles/rt3d.dir/rt3d.o
+.PHONY : rt3d.o
 
 # target to preprocess a source file
-test.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.i
-.PHONY : test.i
+rt3d.i:
+	$(MAKE) -f CMakeFiles/rt3d.dir/build.make CMakeFiles/rt3d.dir/rt3d.i
+.PHONY : rt3d.i
 
 # target to generate assembly for a file
-test.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/test.s
-.PHONY : test.s
+rt3d.s:
+	$(MAKE) -f CMakeFiles/rt3d.dir/build.make CMakeFiles/rt3d.dir/rt3d.s
+.PHONY : rt3d.s
 
 # Help Target
 help:
@@ -134,10 +134,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... test.o"
-	@echo "... test.i"
-	@echo "... test.s"
+	@echo "... rt3d"
+	@echo "... rt3d.o"
+	@echo "... rt3d.i"
+	@echo "... rt3d.s"
 .PHONY : help
 
 
