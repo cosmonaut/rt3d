@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE all [
+  <!ELEMENT all    (pointset)>
+  <!ELEMENT pointset   (rpoints)>
+  <!ELEMENT rpoints (rpoint, rpoint2)>
+  <!ELEMENT rpoint  (x, y, z)>
+  <!ELEMENT rpoint2  (x, y, z)>
+  <!ELEMENT x (#PCDATA)>
+  <!ELEMENT y (#PCDATA)>
+  <!ELEMENT z (#PCDATA)>
+]>
+<all>
+    <pointset>
+        <rpoints>
+            <rpoint>
+                <x>hi</x>
+                <y>hi</y>
+                <z>hi</z>
+            </rpoint>
+            <rpoint2>
+                <x>hi</x>
+                <y>hi</y>
+                <z>hi</z>
+            </rpoint2>
+        </rpoints>
+    </pointset>
+</all>
