@@ -7,11 +7,13 @@
 #IncludeRegexTransform: 
 
 /home/tron/devel/rt3d/rt3d.cxx
-vector
--
 iostream
 -
 libxml++/libxml++.h
+-
+sstream
+-
+vector
 -
 vtkActor.h
 /home/tron/devel/rt3d/vtkActor.h

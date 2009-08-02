@@ -1,27 +1,205 @@
 <?xml version="1.0"?>
-<!DOCTYPE all [
-  <!ELEMENT all    (pointset)>
-  <!ELEMENT pointset   (rpoints)>
-  <!ELEMENT rpoints (rpoint, rpoint2)>
-  <!ELEMENT rpoint  (x, y, z)>
-  <!ELEMENT rpoint2  (x, y, z)>
+<!DOCTYPE raytrace [
+  <!ELEMENT raytrace    (lines)>
+  <!ELEMENT lines   (rlines, olines, ylines, glines, blines, ilines, vlines)>
+  <!ELEMENT rlines  (line0, line1)>
+  <!ELEMENT olines  (line0, line1)>
+  <!ELEMENT ylines  (line0, line1)>
+  <!ELEMENT glines  (line0, line1)>
+  <!ELEMENT blines  (line0, line1)>
+  <!ELEMENT ilines  (line0, line1)>
+  <!ELEMENT vlines  (line0, line1)>
+  <!ELEMENT line0  (point0, point1)>
+  <!ELEMENT line1  (point0, point1)>
+  <!ELEMENT point0  (x, y, z)>
+  <!ELEMENT point1  (x, y, z)>
   <!ELEMENT x (#PCDATA)>
   <!ELEMENT y (#PCDATA)>
   <!ELEMENT z (#PCDATA)>
 ]>
-<all>
-    <pointset>
-        <rpoints>
-            <rpoint>
-                <x>hi</x>
-                <y>hi</y>
-                <z>hi</z>
-            </rpoint>
-            <rpoint2>
-                <x>hi</x>
-                <y>hi</y>
-                <z>hi</z>
-            </rpoint2>
-        </rpoints>
-    </pointset>
-</all>
+<raytrace>
+    <lines>
+        <rlines>
+            <line0>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>3.3</x>
+                    <y>3.3</y>
+                    <z>3.3</z>
+                </point1>
+            </line0>
+            <line1>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>-3.3</x>
+                    <y>-3.3</y>
+                    <z>-3.3</z>
+                </point1>
+            </line1>
+        </rlines>
+        <olines>
+            <line0>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>3</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point1>
+            </line0>
+            <line1>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>-3.3</x>
+                    <y>-3.3</y>
+                    <z>-3.3</z>
+                </point1>
+            </line1>
+        </olines>
+        <ylines>
+            <line0>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>3</z>
+                </point1>
+            </line0>
+            <line1>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>-3.3</x>
+                    <y>-3.3</y>
+                    <z>-3.3</z>
+                </point1>
+            </line1>
+        </ylines>
+        <glines>
+            <line0>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>0</x>
+                    <y>4</y>
+                    <z>0</z>
+                </point1>
+            </line0>
+            <line1>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>-5</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point1>
+            </line1>
+        </glines>
+        <blines>
+            <line0>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>0</x>
+                    <y>7</y>
+                    <z>0</z>
+                </point1>
+            </line0>
+            <line1>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>-3.3</x>
+                    <y>-3.3</y>
+                    <z>-3.3</z>
+                </point1>
+            </line1>
+        </blines>
+        <ilines>
+            <line0>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>3</z>
+                </point1>
+            </line0>
+            <line1>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>-3.3</x>
+                    <y>-3.3</y>
+                    <z>-3.3</z>
+                </point1>
+            </line1>
+        </ilines>
+        <vlines>
+            <line0>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>3</z>
+                </point1>
+            </line0>
+            <line1>
+                <point0>
+                    <x>0</x>
+                    <y>0</y>
+                    <z>0</z>
+                </point0>
+                <point1>
+                    <x>-3.3</x>
+                    <y>-3.3</y>
+                    <z>-3.3</z>
+                </point1>
+            </line1>
+        </vlines>
+    </lines>
+</raytrace>

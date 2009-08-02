@@ -5,7 +5,12 @@ rt3d is a program written to display raytraces of telescope optics in
 rendering. Input for the program is given in xml format (Specifics
 will be documented later...).
 
+
 Dependencies:
 vtk
 libxml++
 vtkMy (My custom vtkParametricParaboloid optic class)
+
+
+Usage:
+./rt3d <xml rays and optics file>
