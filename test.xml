@@ -34,7 +34,7 @@
             </line0>
             <line1>
                 <point0>
-                    <x>0</x>
+                    <x>-.0</x>
                     <y>0</y>
                     <z>0</z>
                 </point0>
@@ -53,7 +53,7 @@
                     <z>0</z>
                 </point0>
                 <point1>
-                    <x>3</x>
+                    <x>3.5</x>
                     <y>0</y>
                     <z>0</z>
                 </point1>
@@ -66,7 +66,7 @@
                 </point0>
                 <point1>
                     <x>-3.3</x>
-                    <y>-3.3</y>
+                    <y>-6</y>
                     <z>-3.3</z>
                 </point1>
             </line1>
@@ -157,9 +157,9 @@
                     <z>0</z>
                 </point0>
                 <point1>
-                    <x>0</x>
+                    <x>7</x>
                     <y>0</y>
-                    <z>3</z>
+                    <z>0</z>
                 </point1>
             </line0>
             <line1>
@@ -170,7 +170,7 @@
                 </point0>
                 <point1>
                     <x>-3.3</x>
-                    <y>-3.3</y>
+                    <y>-7</y>
                     <z>-3.3</z>
                 </point1>
             </line1>

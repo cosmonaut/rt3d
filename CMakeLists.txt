@@ -11,4 +11,4 @@ ADD_EXECUTABLE(rt3d rt3d.cxx)
 TARGET_LINK_LIBRARIES(rt3d
     vtkCommon vtkGraphics
     vtkHybrid vtkIO vtkRendering
-    vtkmyCommon xml++-2.6)
+    vtkmyCommon xml++-2.6 boost_regex)

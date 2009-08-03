@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/tron/devel/rt3d/rt3d.cxx
+boost/regex.hpp
+-
 iostream
 -
 libxml++/libxml++.h
@@ -21,16 +23,22 @@ vtkCamera.h
 /home/tron/devel/rt3d/vtkCamera.h
 vtkMath.h
 /home/tron/devel/rt3d/vtkMath.h
+vtkPostScriptWriter.h
+/home/tron/devel/rt3d/vtkPostScriptWriter.h
 vtkProperty.h
 /home/tron/devel/rt3d/vtkProperty.h
 vtkRenderer.h
 /home/tron/devel/rt3d/vtkRenderer.h
+vtkRenderLargeImage.h
+/home/tron/devel/rt3d/vtkRenderLargeImage.h
 vtkRenderWindow.h
 /home/tron/devel/rt3d/vtkRenderWindow.h
 vtkRenderWindowInteractor.h
 /home/tron/devel/rt3d/vtkRenderWindowInteractor.h
 vtkSmartPointer.h
 /home/tron/devel/rt3d/vtkSmartPointer.h
+vtkTIFFWriter.h
+/home/tron/devel/rt3d/vtkTIFFWriter.h
 vtkParametricParaboloid.h
 /home/tron/devel/rt3d/vtkParametricParaboloid.h
 vtkParametricFunction.h
@@ -332,6 +340,10 @@ vtkSystemIncludes.h
 vtkstd/string
 -
 
+/home/tron/devel/vtk/src/VTK/Common/vtkStructuredData.h
+vtkObject.h
+/home/tron/devel/vtk/src/VTK/Common/vtkObject.h
+
 /home/tron/devel/vtk/src/VTK/Common/vtkSystemIncludes.h
 vtkWin32Header.h
 /home/tron/devel/vtk/src/VTK/Common/vtkWin32Header.h
@@ -442,6 +454,12 @@ vtkDataObject.h
 vtkAlgorithm.h
 /home/tron/devel/vtk/src/VTK/Filtering/vtkAlgorithm.h
 
+/home/tron/devel/vtk/src/VTK/Filtering/vtkImageData.h
+vtkDataSet.h
+/home/tron/devel/vtk/src/VTK/Filtering/vtkDataSet.h
+vtkStructuredData.h
+/home/tron/devel/vtk/src/VTK/Filtering/vtkStructuredData.h
+
 /home/tron/devel/vtk/src/VTK/Filtering/vtkPointSet.h
 vtkDataSet.h
 /home/tron/devel/vtk/src/VTK/Filtering/vtkDataSet.h
@@ -481,6 +499,24 @@ vtkPolyDataAlgorithm.h
 /home/tron/devel/vtk/src/VTK/Graphics/vtkParametricFunctionSource.h
 vtkPolyDataAlgorithm.h
 /home/tron/devel/vtk/src/VTK/Graphics/vtkPolyDataAlgorithm.h
+
+/home/tron/devel/vtk/src/VTK/Hybrid/vtkRenderLargeImage.h
+vtkAlgorithm.h
+/home/tron/devel/vtk/src/VTK/Hybrid/vtkAlgorithm.h
+vtkImageData.h
+/home/tron/devel/vtk/src/VTK/Hybrid/vtkImageData.h
+
+/home/tron/devel/vtk/src/VTK/IO/vtkImageWriter.h
+vtkImageAlgorithm.h
+/home/tron/devel/vtk/src/VTK/IO/vtkImageAlgorithm.h
+
+/home/tron/devel/vtk/src/VTK/IO/vtkPostScriptWriter.h
+vtkImageWriter.h
+/home/tron/devel/vtk/src/VTK/IO/vtkImageWriter.h
+
+/home/tron/devel/vtk/src/VTK/IO/vtkTIFFWriter.h
+vtkImageWriter.h
+/home/tron/devel/vtk/src/VTK/IO/vtkImageWriter.h
 
 /home/tron/devel/vtk/src/VTK/Rendering/vtkAbstractMapper3D.h
 vtkAbstractMapper.h
