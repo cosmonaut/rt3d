@@ -76,6 +76,7 @@ int pdumbcount = 0;
 int linecount = 0;
 int pointcount = 0;
 
+
 void parse_xml(const xmlpp::Node* node, vector<Line>& rays)
 {
     const xmlpp::ContentNode* nodeContent = dynamic_cast<const xmlpp::ContentNode*>(node);
