@@ -1,61 +1,15 @@
-//general includes
-#include <boost/regex.hpp>
-#include <iostream>
-#include <libxml++/libxml++.h>
-#include <sstream>
-#include <vector>
-#include "vtkActor.h"
-#include "vtkCamera.h"
-#include "vtkMath.h"
-#include "vtkPostScriptWriter.h"
-#include "vtkProperty.h"
-#include "vtkRenderer.h"
-#include "vtkRenderLargeImage.h"
-#include "vtkRenderWindow.h"
-#include "vtkRenderWindowInteractor.h"
-#include "vtkSmartPointer.h"
-#include "vtkTIFFWriter.h"
-
-//parametric includes
-#include "vtkParametricParaboloid.h"
-#include "vtkParametricFunction.h"
-#include "vtkParametricFunctionSource.h"
-#include "vtkPolyDataMapper.h"
-
-//line includes
-#include "vtkPoints.h"
-#include "vtkPolyData.h"
-#include "vtkPolyLine.h"
-#include "vtkAppendPolyData.h"
-#include "vtkUnstructuredGrid.h"
-#include "vtkDataSetMapper.h"
+#include "rt3d.h"
 
 using namespace std;
 
-//For making ints to strings!
-//what the fuck am I using this for?
-//maybe saving multiple images?
-template <class T>
-inline std::string to_string (const T& t)
-{
-    std::stringstream ss;
-    ss << t;
-    return ss.str();
-}
-
-struct Point
-{
-    double x;
-    double y;
-    double z;
-};
-
-struct Line
-{
-    //code 0-6 to be colors. r0 o1 y2 g3 b4 i5 v6
-    int color;
-    vector<Point> points;
-};
+//do something about this global variable shit, not cool. These all
+//exist to help recursive function 'check_point'
+Line l;
+Point p;
+int dumbcount = 0;
+int pdumbcount = 0;
+int linecount = 0;
+int pointcount = 0;
 
 //Helper method to check point validity.
 void check_point(Glib::ustring point, const xmlpp::Node* node)
@@ -67,15 +21,6 @@ void check_point(Glib::ustring point, const xmlpp::Node* node)
         throw 1;
     }
 }
-
-//do something about this global variable shit, not cool.
-Line l;
-Point p;
-int dumbcount = 0;
-int pdumbcount = 0;
-int linecount = 0;
-int pointcount = 0;
-
 
 void parse_xml(const xmlpp::Node* node, vector<Line>& rays)
 {
@@ -107,23 +52,6 @@ void parse_xml(const xmlpp::Node* node, vector<Line>& rays)
             break;
         }
     }
-
-    //old way
-//     if (node->get_name() == "rlines") {
-//         l.color = 0;
-//     } else if (node->get_name() == "olines") {
-//         l.color = 1;
-//     } else if (node->get_name() == "ylines") {
-//         l.color = 2;
-//     } else if (node->get_name() == "glines") {
-//         l.color = 3;
-//     } else if (node->get_name() == "blines") {
-//         l.color = 4;
-//     } else if (node->get_name() == "ilines") {
-//         l.color = 5;
-//     } else if (node->get_name() == "vlines") {
-//         l.color = 6;
-//     } 
 
     if (node->get_name().substr(0, 4) == "line" && node->get_name() != "lines") {
         rays.push_back(l);
@@ -159,26 +87,6 @@ void parse_xml(const xmlpp::Node* node, vector<Line>& rays)
             break;
         }
     }
-
-    //the old way
-//         if (node->get_name() == "x"){
-// //             xmlpp::Node::NodeList list = node->get_children();
-// //             const xmlpp::TextNode* tnode = dynamic_cast<const xmlpp::TextNode*>(list.front());
-// //             check_point(tnode->get_content(), tnode);
-//             p.x = atof(tnode->get_content().c_str());
-//         } else if (node->get_name() == "y"){
-// //             xmlpp::Node::NodeList list = node->get_children();
-// //             const xmlpp::TextNode* tnode = dynamic_cast<const xmlpp::TextNode*>(list.front());
-// //             check_point(tnode->get_content(), tnode);
-//             p.y = atof(tnode->get_content().c_str());
-//         } else if (node->get_name() == "z"){
-// //             xmlpp::Node::NodeList list = node->get_children();
-// //             const xmlpp::TextNode* tnode = dynamic_cast<const xmlpp::TextNode*>(list.front());
-// //             check_point(tnode->get_content(), tnode);
-// //             p.z = atof(tnode->get_content().c_str());
-//             rays[linecount].points.push_back(p);
-//         }
-
 
     if(!nodeContent)
         {
@@ -249,9 +157,9 @@ int main (int argc, char* argv[])
     vtkSmartPointer<vtkActor> parAct 
         = vtkSmartPointer<vtkActor>::New();
 
-    par->SetHeight(0.00001);
-    par->SetRadius(0.1);
-    par->SetMaximumU(0.01);
+    par->SetHeight(1);
+    par->SetRadius(4);
+    par->SetMaximumU(0.1);
     parSrc->SetParametricFunction(par);
     parSrc->SetScalarModeToNone();
     
@@ -269,21 +177,6 @@ int main (int argc, char* argv[])
     for (int i = 0; i < 7; i++) {
         pdata.push_back(vtkSmartPointer<vtkAppendPolyData>::New());
     }
-
-    // vtkSmartPointer<vtkAppendPolyData> rglue
-//         = vtkSmartPointer<vtkAppendPolyData>::New();
-//     vtkSmartPointer<vtkAppendPolyData> oglue
-//         = vtkSmartPointer<vtkAppendPolyData>::New();
-//     vtkSmartPointer<vtkAppendPolyData> yglue
-//         = vtkSmartPointer<vtkAppendPolyData>::New();
-//     vtkSmartPointer<vtkAppendPolyData> gglue
-//         = vtkSmartPointer<vtkAppendPolyData>::New();
-//     vtkSmartPointer<vtkAppendPolyData> bglue
-//         = vtkSmartPointer<vtkAppendPolyData>::New();
-//     vtkSmartPointer<vtkAppendPolyData> iglue
-//         = vtkSmartPointer<vtkAppendPolyData>::New();
-//     vtkSmartPointer<vtkAppendPolyData> vglue
-//         = vtkSmartPointer<vtkAppendPolyData>::New();
 
     //Loop to build a group of lines using the point array.
     for (int i = 0; i < rays.size(); i++) 
@@ -313,6 +206,12 @@ int main (int argc, char* argv[])
             vtk_polydata->SetPoints(vtk_points);
             vtk_polydata->SetLines(vtk_grid->GetCells());
             
+//             vtkSmartPointer<vtkSmoothPolyDataFilter> res
+//                 = vtkSmartPointer<vtkSmoothPolyDataFilter>::New();
+//             res->SetInput(vtk_polydata);
+//             res->SetNumberOfIterations(100);
+//             res->BoundarySmoothingOn();
+
             switch(rays[i].color) 
                 {
                 case 0 :
@@ -346,37 +245,13 @@ int main (int argc, char* argv[])
                 }
         }
 
-    //We don't need my line objects anymore.
+    //We don't need my line objects anymore. BALEETED!
     rays.clear();
-
 
     for (int i = 0; i < 7; i++) {
         dmap.push_back(vtkSmartPointer<vtkDataSetMapper>::New());
         dmap[i]->SetInputConnection(pdata[i]->GetOutputPort());
     }
-
-//     vtkSmartPointer<vtkDataSetMapper> rglue_map
-//         = vtkSmartPointer<vtkDataSetMapper>::New();
-//     rglue_map->SetInputConnection(rglue->GetOutputPort());
-//     vtkSmartPointer<vtkDataSetMapper> oglue_map
-//         = vtkSmartPointer<vtkDataSetMapper>::New();
-//     oglue_map->SetInputConnection(oglue->GetOutputPort());
-//     vtkSmartPointer<vtkDataSetMapper> yglue_map
-//         = vtkSmartPointer<vtkDataSetMapper>::New();
-//     yglue_map->SetInputConnection(yglue->GetOutputPort());
-//     vtkSmartPointer<vtkDataSetMapper> gglue_map
-//         = vtkSmartPointer<vtkDataSetMapper>::New();
-//     gglue_map->SetInputConnection(gglue->GetOutputPort());
-//     vtkSmartPointer<vtkDataSetMapper> bglue_map
-//         = vtkSmartPointer<vtkDataSetMapper>::New();
-//     bglue_map->SetInputConnection(bglue->GetOutputPort());
-//     vtkSmartPointer<vtkDataSetMapper> iglue_map
-//         = vtkSmartPointer<vtkDataSetMapper>::New();
-//     iglue_map->SetInputConnection(iglue->GetOutputPort());
-//     vtkSmartPointer<vtkDataSetMapper> vglue_map
-//         = vtkSmartPointer<vtkDataSetMapper>::New();
-//     vglue_map->SetInputConnection(vglue->GetOutputPort());
-
 
     for (int i = 0; i < 7; i++) {
         vact.push_back(vtkSmartPointer<vtkActor>::New());
@@ -407,42 +282,8 @@ int main (int argc, char* argv[])
         }
     }    
 
-//     vtkSmartPointer<vtkActor> rglue_act
-//         = vtkSmartPointer<vtkActor>::New();
-//     rglue_act->SetMapper(rglue_map);
-//     rglue_act->GetProperty()->SetColor(1, 0, 0);
-//     rglue_act->GetProperty()->SetOpacity(0.7);
-//     vtkSmartPointer<vtkActor> oglue_act
-//         = vtkSmartPointer<vtkActor>::New();
-//     oglue_act->SetMapper(oglue_map);
-//     oglue_act->GetProperty()->SetColor(1, 0.5, 0);
-//     oglue_act->GetProperty()->SetOpacity(0.7);
-//     vtkSmartPointer<vtkActor> yglue_act
-//         = vtkSmartPointer<vtkActor>::New();
-//     yglue_act->SetMapper(yglue_map);
-//     yglue_act->GetProperty()->SetColor(1, 1, 0);
-//     yglue_act->GetProperty()->SetOpacity(0.7);
-//     vtkSmartPointer<vtkActor> gglue_act
-//         = vtkSmartPointer<vtkActor>::New();
-//     gglue_act->SetMapper(gglue_map);
-//     gglue_act->GetProperty()->SetColor(0, 1, 0);
-//     gglue_act->GetProperty()->SetOpacity(0.7);
-//     vtkSmartPointer<vtkActor> bglue_act
-//         = vtkSmartPointer<vtkActor>::New();
-//     bglue_act->SetMapper(bglue_map);
-//     bglue_act->GetProperty()->SetColor(0, 0, 1);
-//     gglue_act->GetProperty()->SetOpacity(0.7);
-//     vtkSmartPointer<vtkActor> iglue_act
-//         = vtkSmartPointer<vtkActor>::New();
-//     iglue_act->SetMapper(iglue_map);
-//     iglue_act->GetProperty()->SetColor(0.30, 0, 0.5);
-//     iglue_act->GetProperty()->SetOpacity(0.7);
-//     vtkSmartPointer<vtkActor> vglue_act
-//         = vtkSmartPointer<vtkActor>::New();
-//     vglue_act->SetMapper(vglue_map);
-//     vglue_act->GetProperty()->SetColor(0.93, 0.5, 0.93);
-//     vglue_act->GetProperty()->SetOpacity(0.7);
-     
+
+
     //red    (1,0,0)
     //orange (1, 0.5, 0)
     //yellow (1, 1, 0)
@@ -464,13 +305,7 @@ int main (int argc, char* argv[])
     for (int i = 0; i < 7; i++) {
         ren->AddActor(vact[i]);
     }
-//     ren->AddActor(rglue_act);
-//     ren->AddActor(oglue_act);
-//     ren->AddActor(yglue_act);
-//     ren->AddActor(gglue_act);
-//     ren->AddActor(bglue_act);
-//     ren->AddActor(iglue_act);
-//     ren->AddActor(vglue_act);
+
     ren->AddActor(parAct);
 
     renWin->AddRenderer(ren);
@@ -506,6 +341,11 @@ int main (int argc, char* argv[])
     iren->Initialize();
     ren->Render();
     iren->Start();
-    
+
+    //BALEETED!
+    pdata.clear();
+    dmap.clear();
+    vact.clear();
+
     return 0;
 }
